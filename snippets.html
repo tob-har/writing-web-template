@@ -1,0 +1,83 @@
+<!-- Numbered SIDENOTE -->
+
+<label for="sn-#####" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sn-#####" class="margin-toggle"/>
+<span class="sidenote" data-li="#####Author-Year (===id from bibliograhy <li> element)">CONTENT</span>
+
+<!-- Un-Numbered Marginnote -->
+
+<label for="mn-#####" class="margin-toggle">&#8853;</label>
+<input type="checkbox" id="mn-#####" class="margin-toggle"/>
+<span class="marginnote">CONTENT</span>
+
+<!-- Figure  -->
+<!-- CHECK FORMAT! exchange .webp to the format of your choice, e.g.: to .jpg or .png
+ -->
+<figure>
+	<img loading="lazy" src="/assets/img/#####.webp" alt="#####" />
+	<label for="mn-#####" class="margin-toggle">&#8853;</label>
+	<input type="checkbox" id="mn-#####" class="margin-toggle"/>
+	<span class="marginnote">CONTENT</span>
+</figure>
+
+
+
+<!-- Bilbiography Example. Set id with id="Author-Year"-->
+
+<ul id="bibliography" >
+	<li id="Author-Year">Surename, Name (YEAR): Title. Subtitle. In: Booktitle. Place: Publisher. Pages.</li>
+	<li id="Alpert-Rossum-1981">Alpert, Marco / Rossum, Dave (1981): »<a href="https://synthark.org/Archive/EmulatorArchive/Emulator-I.html" target="_blank">E-mu System Emulator Operating Instructions</a>«.</li>
+</ul>
+
+
+<!-- Blockquote -->
+
+<blockquote>
+    <p>This is the block quotes content.
+
+    	<!-- Sidenote reference for blockquotes -->
+    	<label for="sn-113" class="margin-toggle sidenote-number"></label>
+    	<input type="checkbox" id="sn-113" class="margin-toggle"/>
+    	<span class="sidenote">Butzer et al. 2011: 25.</span></p>
+</blockquote>
+
+
+<!-- Math Blocki with mathML -->
+
+<p class="math-block"> 
+	<math>
+		your mathML goes in here.
+	</math>
+</p>
+
+
+
+<!-- CHARACHTERS -->
+	
+[&hellip;] 	[...]	
+
+&raquo;		»
+&laquo;		«
+ 
+&rsaquo;	›
+&lsaquo; 	‹
+&uarr; pointing up arrow
+
+
+Hyphen –
+
+&nbsp; non breaking space
+
+
+
+
+<!-- jpg to webp conversion -->
+
+
+convert -colorspace RGB 05.jpg 05_RGB.jpg
+cwebp -q 75 05_RGB.jpg -o 05_RGB.webp
+
+
+<!-- Suggest a Line/Word Break point -->
+&shy;
+<wbr>

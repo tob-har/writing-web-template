@@ -1,0 +1,1053 @@
+@charset "UTF-8";
+
+/* Import ET Book styles
+   adapted from https://github.com/edwardtufte/et-book/blob/gh-pages/et-book.css */
+
+@font-face {
+    font-family: "et-book";
+    src: url("/assets/fonts/et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot");
+    src: url("/assets/fonts/et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff") format("woff"), url("/assets/fonts/et-book/et-book-roman-line-figures/et-book-roman-line-figures.ttf") format("truetype"), url("/assets/fonts/et-book/et-book-roman-line-figures/et-book-roman-line-figures.svg#etbookromanosf") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "et-book";
+    src: url("/assets/fonts/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot");
+    src: url("/assets/fonts/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.woff") format("woff"), url("/assets/fonts/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.ttf") format("truetype"), url("/assets/fonts/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.svg#etbookromanosf") format("svg");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "et-book";
+    src: url("/assets/fonts/et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot");
+    src: url("/assets/fonts/et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/et-book/et-book-bold-line-figures/et-book-bold-line-figures.woff") format("woff"), url("/assets/fonts/et-book/et-book-bold-line-figures/et-book-bold-line-figures.ttf") format("truetype"), url("/assets/fonts/et-book/et-book-bold-line-figures/et-book-bold-line-figures.svg#etbookromanosf") format("svg");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "et-book-roman-old-style";
+    src: url("/assets/fonts/et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.eot");
+    src: url("/assets/fonts/et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.woff") format("woff"), url("/assets/fonts/et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.ttf") format("truetype"), url("/assets/fonts/et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.svg#etbookromanosf") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Tufte CSS styles */
+html {
+    font-size: 15px;
+    scroll-behavior: smooth;
+}
+
+
+body {
+    width: 87.5%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 12.5%;
+    font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    /*Font Family Alternatives: System Fonts Only Stcks (modernfontstacks.com)*/
+    /*font-family: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;*/
+    /*font-family: Didot, 'Bodoni MT', 'Noto Serif Display', 'URW Palladio L', P052, Sylfaen, serif;*/
+    /*font-family: Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif;*/
+    background-color: #f2f2f2; /*#fffff8;*/
+    color: #111;
+    max-width: 1400px;
+    counter-reset: sidenote-counter;  /*h2-counter;*/
+}
+
+
+/* Adds dark mode automatically, when user has dark mode enabled in browser*/
+/*@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #151515;
+        color: #ddd;
+    }
+
+    a:link, .tufte-underline, .hover-tufte-underline:hover {
+        text-shadow: 0.03em 0 #151515, -0.03em 0 #151515, 0 0.03em #151515, 0 -0.03em #151515, 0.06em 0 #151515, -0.06em 0 #151515, 0.09em 0 #151515, -0.09em 0 #151515, 0.12em 0 #151515, -0.12em 0 #151515, 0.15em 0 #151515, -0.15em 0 #151515;
+    }
+
+    a:link, .tufte-underline, .hover-tufte-underline:hover {
+        text-shadow: 0.03em 0 #151515, -0.03em 0 #151515, 0 0.03em #151515, 0 -0.03em #151515, 0.06em 0 #151515, -0.06em 0 #151515, 0.09em 0 #151515, -0.09em 0 #151515, 0.12em 0 #151515, -0.12em 0 #151515, 0.15em 0 #151515, -0.15em 0 #151515;
+    }
+
+    #toc-container {
+        background-color: #151515;
+        color: #ddd;
+}*/
+
+
+/* DARK MODE */
+
+.dark-mode,
+.dark-mode #toc-container {
+    background-color: #151515;
+    color: #ddd;
+}
+
+.dark-mode .dark-mode-toggle-button,
+.dark-mode .toggel-font-type-button,
+.dark-mode .toggle-font-size-button {
+    color: #ddd;   
+}
+
+
+.dark-mode a:link,
+.dark-mode .tufte-underline,
+.dark-mode .hover-tufte-underline:hover {
+    text-shadow: 0.03em 0 #151515, 
+               -0.03em 0 #151515, 
+               0 0.03em #151515, 
+               0 -0.03em #151515, 
+               0.06em 0 #151515, 
+               -0.06em 0 #151515, 
+               0.09em 0 #151515, 
+               -0.09em 0 #151515, 
+               0.12em 0 #151515, 
+               -0.12em 0 #151515, 
+               0.15em 0 #151515, 
+               -0.15em 0 #151515;
+}
+
+
+
+h1 {
+    font-weight: 400;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    font-size: 3.2rem;
+    line-height: 1;
+}
+
+h2 {
+    /* font-style: italic; */
+    font-weight: 400;
+    margin-top: 2.1rem;
+    margin-bottom: 1.4rem;
+    font-size: 2.2rem;
+    line-height: 1;
+    
+/*  counter-reset: h3-counter;
+    counter-increment: h2-counter;*/
+    
+}
+
+h3 {
+    /* font-style: italic; */
+    font-weight: 400;
+    font-size: 1.7rem;
+    margin-top: 2rem;
+    margin-bottom: 1.4rem;
+    line-height: 1;
+    
+    /*counter-increment: h3-counter;*/
+    
+}
+
+
+/* Add Headings Numbers before Headings (alternative version to the 
+JavaScript Function...) 
+
+>>> IF USED; uncomment  counter-reset h2-counter in body {} <<<
+*/
+
+/*h2::before {
+  content: counter(h2-counter) ". ";
+}
+h3::before {
+  content: counter(h2-counter) "." counter(h3-counter) ". ";
+}*/
+
+
+hr {
+    display: block;
+    height: 1px;
+    width: 55%;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+p.subtitle {
+    font-style: italic;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    display: block;
+    line-height: 1;
+}
+
+.numeral {
+    font-family: et-book-roman-old-style;
+}
+
+.danger {
+    color: red;
+}
+
+article {
+    padding: 5rem 0rem;
+}
+
+section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+p,
+dl,
+ol,
+ul {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    /*list-style-type: none;*/
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+
+p {
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+    padding-right: 0;
+    vertical-align: baseline;
+    text-align: justify;
+    text-align-last: none;
+    text-justify: auto;
+    text-size-adjust: none;
+    word-spacing:-0.05em;
+      
+
+    /* ZEILENUMBRÜCHE - siehe: https://www.stichpunkt.de/html/umbruch.html */
+    -moz-hyphens: auto;
+    -o-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto; 
+}
+
+/* Chapter Epigraphs */
+div.epigraph {
+    margin: 5em 0;
+}
+
+div.epigraph > blockquote {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+div.epigraph > blockquote,
+div.epigraph > blockquote > p {
+    font-style: italic;
+}
+
+div.epigraph > blockquote > footer {
+    font-style: normal;
+}
+
+div.epigraph > blockquote > footer > cite {
+    font-style: italic;
+}
+/* end chapter epigraphs styles */
+
+
+blockquote {
+    font-size: 1.4rem;
+}
+
+blockquote p {
+    width: 55%;
+    margin-right: 40px;
+}
+
+blockquote footer {
+    width: 55%;
+    font-size: 1.1rem;
+    text-align: right;
+}
+
+section > p,
+section > footer,
+section > table {
+    width: 55%;
+}
+
+/* 50 + 5 == 55, to be the same width as paragraph */
+section > dl,
+section > ol,
+section > ul {
+    width: 50%;
+    -webkit-padding-start: 5%;
+}
+
+dt:not(:first-child),
+li:not(:first-child) {
+    margin-top: 0.25rem;
+}
+
+
+figure {
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    max-width: 55%;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    margin: 0 0 3em 0;
+}
+
+figcaption {
+    float: right;
+    clear: right;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    vertical-align: baseline;
+    position: relative;
+    max-width: 40%;
+}
+
+figure.fullwidth figcaption {
+    margin-right: 24%;
+}
+
+/* Links: replicate underline that clears descenders */
+a:link,
+a:visited {
+    color: inherit;
+}
+
+.no-tufte-underline:link {
+    background: unset;
+    text-shadow: unset;
+}
+
+a:link, .tufte-underline, .hover-tufte-underline:hover {
+    text-decoration: none;
+    background: -webkit-linear-gradient(#f2f2f2, #f2f2f2), -webkit-linear-gradient(#f2f2f2, #f2f2f2), -webkit-linear-gradient(currentColor, currentColor);
+    background: linear-gradient(#f2f2f2, #f2f2f2), linear-gradient(#f2f2f2, #f2f2f2), linear-gradient(currentColor, currentColor);
+    -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    text-shadow: 0.03em 0 #f2f2f2, -0.03em 0 #f2f2f2, 0 0.03em #f2f2f2, 0 -0.03em #f2f2f2, 0.06em 0 #f2f2f2, -0.06em 0 #f2f2f2, 0.09em 0 #f2f2f2, -0.09em 0 #f2f2f2, 0.12em 0 #f2f2f2, -0.12em 0 #f2f2f2, 0.15em 0 #f2f2f2, -0.15em 0 #f2f2f2;
+    background-position: 0% 93%, 100% 93%, 0% 93%;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    a:link, .tufte-underline, .hover-tufte-underline:hover {
+        background-position-y: 87%, 87%, 87%;
+    }
+}
+
+
+a:link::selection,
+a:link::-moz-selection {
+    text-shadow: 0.03em 0 #b4d5fe, -0.03em 0 #b4d5fe, 0 0.03em #b4d5fe, 0 -0.03em #b4d5fe, 0.06em 0 #b4d5fe, -0.06em 0 #b4d5fe, 0.09em 0 #b4d5fe, -0.09em 0 #b4d5fe, 0.12em 0 #b4d5fe, -0.12em 0 #b4d5fe, 0.15em 0 #b4d5fe, -0.15em 0 #b4d5fe;
+    background: #b4d5fe;
+}
+
+/* Sidenotes, margin notes, figures, captions */
+img {
+    max-width: 100%;
+}
+
+.sidenote,
+.marginnote {
+    float: right;
+    clear: right;
+    margin-right: -60%;
+    width: 50%;
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    text-align: start;
+    text-align-last: none;
+    text-justify: none;
+    hyphens: none;
+    cursor: help;
+}
+
+.sidenote-number {
+    counter-increment: sidenote-counter;
+}
+
+.sidenote-number:after,
+.sidenote:before {
+    font-family: et-book-roman-old-style;
+    position: relative;
+    vertical-align: baseline;
+}
+
+.sidenote-number:after {
+    content: counter(sidenote-counter);
+    font-size: 1rem;
+    top: -0.5rem;
+    left: 0.1rem;
+}
+
+.sidenote:before {
+    content: counter(sidenote-counter) " ";
+    font-size: 1rem;
+    top: -0.5rem;
+}
+
+blockquote .sidenote,
+blockquote .marginnote {
+    margin-right: -70%;
+    min-width: 59%;
+    text-align: left;
+}
+
+div.fullwidth,
+table.fullwidth {
+    width: 100%;
+}
+
+div.table-wrapper {
+    overflow-x: auto;
+    font-family: "Trebuchet MS", "Gill Sans", "Gill Sans MT", sans-serif;
+}
+
+.sans {
+    /*Original Tufte CSS Sans Font Family:*/
+    /*font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;*/
+    
+    /*modernfontstacks.com alternative: Classical Humanist (System Fonts Only)*/
+    font-family: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif;
+    letter-spacing: .03em;
+}
+
+code, pre > code {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 1.0rem;
+    line-height: 1.42;
+    -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. See https://github.com/edwardtufte/tufte-css/issues/81#issuecomment-261953409 */
+}
+
+.sans > code {
+    font-size: 1.2rem;
+}
+
+h1 > code,
+h2 > code,
+h3 > code {
+    font-size: 0.80em;
+}
+
+.marginnote > code,
+.sidenote > code {
+    font-size: 1rem;
+}
+
+pre > code {
+    font-size: 0.9rem;
+    width: 52.5%;
+    margin-left: 2.5%;
+    overflow-x: auto;
+    display: block;
+}
+
+pre.fullwidth > code {
+    width: 90%;
+}
+
+.fullwidth {
+    max-width: 90%;
+    clear:both;
+}
+
+span.newthought {
+    font-variant: small-caps;
+    font-size: 1.2em;
+}
+
+input.margin-toggle {
+    display: none;
+}
+
+label.sidenote-number {
+    display: inline-block;
+    max-height: 2rem; /* should be less than or equal to paragraph line-height */
+}
+
+label.margin-toggle:not(.sidenote-number) {
+    display: none;
+}
+
+.iframe-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+
+.iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+/* Style Changes for Small Screens (Mobile Screens) */
+
+@media (max-width: 760px) {
+    
+/*    html {
+        font-size: 13px;
+    }
+*/
+
+    body {
+        width: 84%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    p {
+        text-align: start;
+        text-align-last: none;
+        text-justify: none;
+    }
+
+    p,
+    dl,
+    ol,
+    ul {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        /*list-style-type: none;*/
+    }
+
+    hr,
+    section > p,
+    section > footer,
+    section > table {
+        width: 95%;
+    }
+
+    pre > code {
+        width: 90%;
+    }
+
+    section > dl,
+    section > ol,
+    section > ul {
+        width: 87%;
+    }
+
+    figure {
+        max-width: 100%;
+    }
+
+    figcaption,
+    figure.fullwidth figcaption {
+        margin-right: 0%;
+        max-width: none;
+    }
+
+    blockquote {
+        margin-left: 1em;
+        margin-right: 0.1em;
+    }
+
+    blockquote p,
+    blockquote footer {
+        width: 95%;
+    }
+
+    label.margin-toggle:not(.sidenote-number) {
+        display: inline;
+    }
+
+    .sidenote,
+    .marginnote {
+        display: none;
+    }
+
+    .margin-toggle:checked + .sidenote,
+    .margin-toggle:checked + .marginnote {
+        display: block;
+        float: left;
+        left: 1rem;
+        clear: both;
+        width: 95%;
+        margin: 1rem 2.5%;
+        vertical-align: baseline;
+        position: relative;
+    }
+
+    label {
+        cursor: pointer;
+    }
+
+    div.table-wrapper,
+    table {
+        width: 85%;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .toc-styling {
+        width: 87%;
+    }
+
+    .bibliography {
+        font-size: 1.1rem; /*same as margin notes*/
+    }
+
+    .bibliography li {
+        /*margin-bottom: 12px;*/
+        list-style-type: none;
+        padding-left: 1em;
+        text-indent: -1em;
+    }
+
+
+}
+
+
+
+
+
+/* CUSTOM STYLING */
+
+#toc-container {
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+
+    -webkit-tap-highlight-color: transparent;
+
+    position: fixed;
+    overflow: auto;
+    height: 40px;
+    top: 0px;
+    padding-top: 12px;
+    padding-bottom: 0px;
+    left: 12px;
+    z-index: 999;
+    width: 105%;
+    background-color: #f2f2f2;
+    opacity: 0.95;
+}
+
+.toc-styling {
+    max-width: 600px;
+    list-style-type: none;
+}
+
+/* Indentation of H3 elements in TOC */
+.toc-indent {
+    margin-left: 1.5em;
+}
+
+
+details summary {
+    list-style-type: none;
+    cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+  }
+
+
+p.math-block {  
+    display: inline-block;
+    font-size: 1.4rem;
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+    padding-right: 0;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 3rem;
+    displaystyle: true;
+}
+
+
+/*BUTTONS*/
+/*Dark Mode Toggle Button*/
+
+.dark-mode-toggle-button,
+.toggel-font-type-button,
+.toggle-font-size-button {
+    color: #111;
+    background-color: transparent;
+    z-index: 999999;
+    position: fixed;
+    top: 0.8em;
+    right: 0.1em;
+    border: none;
+    
+    margin-left: 40px;
+    padding: 0px 14px;
+
+    user-select: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+.dark-mode-toggle-button:active{
+    user-select: none;
+}
+
+.dark-mode-toggle-button:hover {
+    cursor: pointer;
+}
+
+
+.toggel-font-type-button {
+    right: 3.5em;
+}
+
+.toggle-font-size-button {
+    right: 7.3em;
+}
+
+
+/* BACK TO TOP BUTTON */
+.back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 0.5rem;
+    right: 1.1rem;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    background-color: transparent;
+    /*padding: 10px 15px;*/
+    -webkit-tap-highlight-color: transparent;
+}
+
+.back-to-top:hover {
+}
+
+.back-to-top.show {
+    display: block;
+}
+
+
+
+.bibliography li {
+    /*margin-bottom: 12px;*/
+    list-style-type: none;
+    padding-left: 1.6em;
+    text-indent: -1.6em;
+}
+
+
+/*Set bullet points in bibliography li elements*/ 
+/*.bibliography li:before {
+  content: "\2014"; 
+  margin-right: 6px;
+}
+*/
+
+
+
+
+
+
+
+/* PRINT OUTPUT optimized for paged.js*/
+
+@media print {
+    .hide-at-print {
+            display: none;
+        }
+
+    @page {
+        size: A4;
+        /* size: A4 landscape;*/
+        
+        background-color: white;
+        color: black;
+        marks: crop cross;
+
+        bleed: 6mm;
+
+        margin-top: 15mm;
+        margin-bottom: 15mm;
+        margin-left: 20mm;
+        margin-right: 20mm;
+    
+        @top-left-corner {
+        }
+        @top-left {
+        }
+        @top-center {
+        }
+        @top-right {
+        }
+        @top-right-corner {
+        }
+        @left-top {
+        }
+        @left-middle {
+        }
+        @left-bottom {
+        }
+        @right-top {
+        }
+        @right-middle {
+        }
+        @right-bottom {
+        }
+        @bottom-left-corner {
+        }
+        @bottom-left {
+        }
+        @bottom-center {
+            content: counter(page);
+        }
+        @bottom-right {
+        }
+        @bottom-right-corner {
+        }
+
+    }
+
+    @page:first {
+        @bottom-center {
+            content: none; /* Hide Page Counter on First Page */
+        }
+    }
+
+    @page:left {
+        @top-center {
+            content: string(h2StringContent);
+        }
+    }
+
+    @page:right {
+    }
+
+
+    @page:blank {
+        @bottom-center {
+            content: none; /* Hide Page Counter on blank pages */
+        }
+
+    }
+
+    @page :nth(n) { 
+    }
+
+
+
+    html {
+        font-size: 12px;
+    
+    }
+
+    body {
+        counter-reset: page;
+        width: 100%;
+        padding-left: 0%;
+    }
+
+    h2 {
+        break-before: page; /* left, right, recto, verso */
+        string-set: h2StringContent content();       
+    }
+
+    h3 {
+        string-set: h3StringContent content();  
+
+    }
+
+    p {
+        margin-top: 1.4rem;
+        margin-bottom: 1.4rem;
+        padding-right: 0;
+        vertical-align: baseline;
+        text-align: justify;
+        text-align-last: none;
+        text-justify: auto;
+        text-size-adjust: none;
+        word-spacing: -0.05em;
+          
+        -moz-hyphens: auto;
+        -o-hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto; 
+    }
+
+
+
+    /* LINKS */    
+    /* Avoid tufte CSS underlining and sets a print version for it */            
+    a:link,
+    a:visited {
+        color: black;
+    }
+
+
+    a:link, .tufte-underline, .hover-tufte-underline:hover {
+        background: unset;
+        text-shadow: unset;
+        text-decoration: underline;
+        text-decoration-thickness: from-font;
+        /*text-decoration-thickness: from-font;*/
+    }
+
+/*    a:link, .tufte-underline, .hover-tufte-underline:hover {
+        text-decoration: none;
+        background: -webkit-linear-gradient(#ffffff, #ffffff), -webkit-linear-gradient(#ffffff, #ffffff), -webkit-linear-gradient(currentColor, currentColor);
+        background: linear-gradient(#ffffff, #ffffff), linear-gradient(#ffffff, #ffffff), linear-gradient(currentColor, currentColor);
+        -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+        -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+        background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+        background-repeat: no-repeat, no-repeat, repeat-x;
+        text-shadow: 0.03em 0 #ffffff, -0.03em 0 #ffffff, 0 0.03em #ffffff, 0 -0.03em #ffffff, 0.06em 0 #ffffff, -0.06em 0 #ffffff, 0.09em 0 #ffffff, -0.09em 0 #ffffff, 0.12em 0 #ffffff, -0.12em 0 #ffffff, 0.15em 0 #ffffff, -0.15em 0 #ffffff;
+        background-position: 0% 93%, 100% 93%, 0% 93%;
+    }*/
+
+    /*NO Underline... used in Printed TOC*/
+    .no-tufte-underline {
+        background: unset;
+        text-shadow: unset;
+        text-decoration: none;
+        background-repeat: no-repeat, no-repeat, no-repeat;
+    }
+
+
+    hr {
+        width: 55%;
+    }
+
+    blockquote {
+        font-size: 1.4rem;
+        break-inside: avoid;
+    }
+
+    blockquote p {
+        width: 70%;
+        margin-right: 40px;
+    }
+
+    blockquote footer {
+        width: 70%;
+        font-size: 1.1rem;
+        text-align: right;
+    }
+
+    section > p,
+    section > footer,
+    section > table {
+        width: 70%;
+    }
+
+    /* 50 + 5 == 55, to be the same width as paragraph */
+    section > dl,
+    section > ol,
+    section > ul {
+        width: 70%;
+        /* -webkit-padding-start: 5%;*/
+    }
+
+
+    .sidenote,
+    .marginnote { 
+        float: right;
+        clear: right;
+        margin-right: -45%;
+        width: 37%;
+        margin-top: 0.3rem;
+        margin-bottom: 0;
+        font-size: 1rem;
+        line-height: 1.2;
+        vertical-align: baseline;
+        position: relative;
+        text-align: start;
+        text-align-last: start;
+        text-justify: none ;
+        hyphens: none;
+    }
+
+    .sidenote-number {
+        counter-increment: sidenote-counter;
+    }
+
+    .sidenote-number:after,
+    .sidenote:before {
+        font-family: et-book-roman-old-style;
+        position: relative;
+        vertical-align: baseline;
+    }
+
+    .sidenote-number:after {
+        content: counter(sidenote-counter);
+        font-size: 0.75rem;
+        top: -0.4rem;
+        left: 0.1rem; 
+    }
+
+    .sidenote:before {
+        content: counter(sidenote-counter) " ";
+        font-size: 0.75rem;
+        top: -0.4rem;
+    }
+
+    blockquote .sidenote,
+    blockquote .marginnote {
+        margin-right: -57.5%;
+        min-width: 43%;
+        text-align: left;
+    }
+
+    figure {
+        max-width: 70%;
+    }
+
+    pre > code {
+        font-size: 0.9rem;
+        width: 70%;
+        max-width: 70%;
+        margin-left: 2.5%;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        /*border: 1px solid #000000;*/
+        padding: 10px;
+    }
+
+    .bibliography {
+        width:87.5%;
+    }
+    
+
+
+
+
+/*    a::after {
+        content: " ("attr(href)")";
+    }*/
+
+}
+
+
+
+
